@@ -8,6 +8,7 @@ class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         ans = []
         def move(root):
+            
             if root:
                 move(root.left)
                 ans.append(root.val)
