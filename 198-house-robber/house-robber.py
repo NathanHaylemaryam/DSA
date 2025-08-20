@@ -4,14 +4,21 @@ class Solution:
       
         if len(nums) <= 2:
             return max(nums)
-        dp  = [0,nums[0]]
+        a , b = [0,nums[0]]
 
 
         for i in range(1, len(nums)):
-            dp.append(max(dp[i-1]+nums[i] , dp[i]))
-        print(dp)
+            
+            temp = b
+            
+            b = max(a + nums[i] , b)
 
-        return dp[-1]
+            a = temp
+
+           
+          
+
+        return b
 
 
 
