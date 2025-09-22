@@ -1,16 +1,20 @@
 class Solution:
-    def __init__ (self):
-        self.memo = defaultdict(int)
+ 
     def climbStairs(self, n: int) -> int:
+        memo  = [-1]*(n + 1)
 
-        if n == 1 or n == 2:
-            return n
+        def solve(n):
+            if n == 1 or n== 2:
+                return n
 
-        else:
-            if n not in self.memo:
-                self.memo[n]  = self.climbStairs(n - 1) + self.climbStairs(n-2)
+            if memo[n] == -1:
+                memo[n] = solve(n - 1) + solve(n - 2)
 
-        return self.memo[n]
+            return memo[n]
+
+        return solve(n)
+
+        
 
         
 
